@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
+
+apply from: '../../dependencies.gradle'
 
 android {
     compileSdk 32
@@ -30,6 +33,17 @@ android {
 }
 
 dependencies {
+
+    implementation project(":characters:characters_domain")
+    implementation project(":core")
+
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
+
+    implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'

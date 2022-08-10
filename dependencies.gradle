@@ -14,16 +14,17 @@ ext.versions = [
         roomVersion          : '2.4.1',
         navigationVersion    : '2.5.1',
         constraintLayoutVersion : '2.1.4',
+        recyclerViewVersion  : '1.2.1',
 
         // di
         hiltVersion          : '2.42',
 
         // network
         retrofitVersion      : '2.9.0',
-        okhttpVersion        : '4.9.1',
+        okhttpVersion        : '4.9.3',
 
         // coroutines
-        coroutinesVersion    : '1.6.0',
+        coroutinesVersion    : '1.6.3',
 
         //image loading
         coilVersion       : '2.1.0',
