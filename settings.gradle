@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MarvelCharacters"
 include ':app'
+include ':characters'
+include ':characters:characters_presentation'
+include ':characters:characters_domain'
+include ':characters:characters_data'
+include ':core'
