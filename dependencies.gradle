@@ -28,6 +28,7 @@ ext.versions = [
 
         //image loading
         coilVersion       : '2.1.0',
+        glideVersion      : '4.13.2',
 
         // testing
         truthVersion         : '1.0.1',

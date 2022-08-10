@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.karlosprojects.marvelcharacters.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_main) as NavHostFragment
         navController = navHostFragment.findNavController()
-
-        setupActionBarWithNavController(navController)
 
     }
 

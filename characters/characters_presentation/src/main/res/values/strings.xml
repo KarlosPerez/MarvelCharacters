@@ -2,5 +2,8 @@
 
     <!-- Characters List -->
     <string name="characters.characters_title">Characters Overview</string>
+    <string name="characters.empty_characters_action">Try Harder!!</string>
+    <string name="characters.empty_characters_title">Bad luck! My powers could not get any marvel heroes</string>
+    <string name="characters.characters_other_error">Something bad happened in the multiverse</string>
 
 </resources>

@@ -1,5 +1,5 @@
 package com.karlosprojects.characters_data.dto
 
-data class Series(
+data class Stories(
     val available: Int
 )

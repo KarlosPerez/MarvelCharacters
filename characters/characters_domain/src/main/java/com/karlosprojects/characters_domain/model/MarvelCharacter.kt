@@ -5,6 +5,7 @@ data class MarvelCharacter(
     val name: String,
     val description: String,
     val thumbnail: String,
-    val thumbnailExt: String,
-    val comics : List<String>
+    val comicAvailable: Int,
+    val seriesAvailable: Int,
+    val storiesAvailable : Int
 )

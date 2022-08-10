@@ -9,9 +9,9 @@ interface MarvelApi {
 
     @GET("v1/public/characters")
     suspend fun getCharacters(
-        @Query("apiKey") apiKey: String = Constants.API_KEY,
+        @Query("apikey") apiKey: String = Constants.API_KEY,
         @Query("ts") ts: String = Constants.ts,
         @Query("hash") hash: String = Constants.hash(),
-        @Query("offset") offset: Int = 0
+        @Query("limit") limit: String = Constants.limit
     ): CharactersDto
 }

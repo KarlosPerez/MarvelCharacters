@@ -8,6 +8,7 @@ data class Results(
     val resourceURI: String,
     val series: Series,
     val thumbnail: Thumbnail,
-    val comics: List<Comics>,
+    val comics: Comics,
+    val stories: Stories,
     val urls: List<Urls>
 )
