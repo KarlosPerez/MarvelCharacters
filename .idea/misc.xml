@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/fragment_character_detail.xml" value="0.20989583333333334" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/drawable/ic_available_info.xml" value="0.152" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/drawable/ic_character_id.xml" value="0.292" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/drawable/ic_name.xml" value="0.292" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/drawable/ic_overview.xml" value="0.18" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/drawable/ic_updated.xml" value="0.18" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/fragment_character_detail.xml" value="0.25" />
         <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/fragment_characters.xml" value="0.20989583333333334" />
         <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/item_character.xml" value="0.20989583333333334" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/layout_character_details.xml" value="0.5" />
+        <entry key="..\:/Users/legom/AndroidStudioProjects/MarvelCharacters/characters/characters_presentation/src/main/res/layout/layout_item_available.xml" value="0.5" />
       </map>
     </option>
   </component>

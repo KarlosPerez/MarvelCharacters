@@ -9,5 +9,10 @@
     <!-- Character Detail -->
     <string name="character_detail.character_title">Character Detail</string>
     <string name="character_detail.network_error">Something is blocking the connection to the MCU</string>
+    <string name="character_detail.no_description">No description provided</string>
+    <string name="character_detail.appearances_title">Appearances</string>
+    <string name="character_detail.series_title">Series</string>
+    <string name="character_detail.comics_title">Comics</string>
+    <string name="character_detail.stories_title">Stories</string>
 
 </resources>

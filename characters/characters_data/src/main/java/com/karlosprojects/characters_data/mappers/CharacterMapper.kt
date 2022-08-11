@@ -27,7 +27,8 @@ fun Results.toCharacterDetailDomain(): CharacterDetail {
         thumbnail = thumbnail.getThumbnail(),
         comicAvailable = comics.available,
         seriesAvailable = series.available,
-        storiesAvailable = stories.available
+        storiesAvailable = stories.available,
+        modified = modified
     )
 }
 

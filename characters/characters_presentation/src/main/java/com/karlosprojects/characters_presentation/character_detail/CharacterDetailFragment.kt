@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.karlosprojects.characters_presentation.R
 import com.karlosprojects.characters_presentation.character_detail.CharacterDetailEvent.OnRequestCharacterDetail
 import com.karlosprojects.characters_presentation.databinding.FragmentCharacterDetailBinding
 import com.karlosprojects.characters_presentation.extensions.showStringSnackBar
@@ -36,8 +38,15 @@ class CharacterDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        initListeners()
         viewModel.onCharactersEvent(OnRequestCharacterDetail(characterIdArg.characterId))
 
+    }
+
+    private fun initListeners() {
+        binding.tbCharacter.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     private fun initObservers() {
@@ -53,7 +62,19 @@ class CharacterDetailFragment : Fragment() {
                 } else {
                     cpCharacterLoading.visibility = View.GONE
                     character.character?.let {
-                        characterDetailTxtName.text = it.name
+                        cvCharacterDetail.setCharacterInfo(character.character)
+                        cvSeriesAvailable.setAvailableInfo(
+                            character.character.seriesAvailable.toString(),
+                            getString(R.string.character_detail_series_title)
+                        )
+                        cvComicsAvailable.setAvailableInfo(
+                            character.character.comicAvailable.toString(),
+                            getString(R.string.character_detail_comics_title)
+                        )
+                        cvStoriesAvailable.setAvailableInfo(
+                            character.character.storiesAvailable.toString(),
+                            getString(R.string.character_detail_stories_title)
+                        )
                     }
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
