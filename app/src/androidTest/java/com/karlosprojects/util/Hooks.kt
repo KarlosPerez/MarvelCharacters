@@ -26,6 +26,23 @@ fun checkViewWithIdAndTextIsDisplayed(@IdRes viewId: Int, @StringRes viewText: I
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
 
+fun checkViewInRecyclerWithIdAndTextIsDisplayed(
+    @IdRes viewId: Int,
+    viewText: String,
+    position: Int
+) {
+    onView(ViewMatchers.withId(viewId)).check(
+        ViewAssertions.matches(
+            recyclerItemAtPosition(
+                position,
+                ViewMatchers.hasDescendant(
+                    ViewMatchers.withText(viewText)
+                )
+            )
+        )
+    )
+}
+
 fun checkViewWithIdAndTextIsDisplayed(@IdRes viewId: Int, viewText: String) {
     onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.withText(viewText)))
@@ -38,20 +55,4 @@ fun performClickByViewId(@IdRes viewId: Int) {
 
 fun performClickByText(viewText: String) {
     onView(ViewMatchers.withText(viewText)).perform(click())
-}
-
-fun performClickByTextInSpinner(viewText: String) {
-    onData(
-        allOf(
-            `is`(instanceOf(String::class.java)),
-            `is`(viewText)
-        )
-    )
-        .inRoot(isPlatformPopup())
-        .perform(click())
-}
-
-fun checkViewHint(@IdRes viewId: Int, @StringRes viewText: Int) {
-    onView(ViewMatchers.withId(viewId))
-        .check(ViewAssertions.matches(ViewMatchers.withHint(viewText)))
 }
