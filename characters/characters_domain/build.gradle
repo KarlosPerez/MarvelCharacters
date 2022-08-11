@@ -37,6 +37,10 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"
 
+    testImplementation "io.mockk:mockk:$versions.mockkVersion"
+    testImplementation "io.mockk:mockk-android:$versions.mockkVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTestVersion"
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
