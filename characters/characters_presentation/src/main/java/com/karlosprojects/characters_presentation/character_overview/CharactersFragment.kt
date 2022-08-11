@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.karlosprojects.characters_domain.model.MarvelCharacter
 import com.karlosprojects.characters_presentation.databinding.FragmentCharactersBinding
 import com.karlosprojects.characters_presentation.extensions.showStringSnackBar
@@ -26,7 +27,9 @@ class CharactersFragment : Fragment() {
 
     private val listenerCharacter = object : ItemClickListener<MarvelCharacter> {
         override fun onItemClick(item: MarvelCharacter) {
-            binding.root.showStringSnackBar(item.name)
+            val action = CharactersFragmentDirections
+                .actionCharactersFragmentToCharacterDetailFragment(item.id)
+            findNavController().navigate(action)
         }
     }
 

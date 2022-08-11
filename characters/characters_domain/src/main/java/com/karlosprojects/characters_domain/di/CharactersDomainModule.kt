@@ -1,6 +1,8 @@
 package com.karlosprojects.characters_domain.di
 
+import com.karlosprojects.characters_domain.repository.CharacterDetailRepository
 import com.karlosprojects.characters_domain.repository.CharactersRepository
+import com.karlosprojects.characters_domain.usecases.GetCharacterDetail
 import com.karlosprojects.characters_domain.usecases.GetCharacters
 import dagger.Module
 import dagger.Provides
@@ -18,5 +20,13 @@ object CharactersDomainModule {
         repository: CharactersRepository
     ): GetCharacters {
         return GetCharacters(repository)
+    }
+
+    @ViewModelScoped
+    @Provides
+    fun provideRequestCharacterDetailUC(
+        repository: CharacterDetailRepository
+    ): GetCharacterDetail {
+        return GetCharacterDetail(repository)
     }
 }
