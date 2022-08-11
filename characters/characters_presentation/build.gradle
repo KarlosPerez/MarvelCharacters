@@ -16,7 +16,7 @@ android {
         minSdk 23
         targetSdk 32
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.karlosprojects.marvelcharacters.HiltTestRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
