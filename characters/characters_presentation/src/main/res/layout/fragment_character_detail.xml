@@ -36,6 +36,7 @@
         android:layout_marginHorizontal="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/character_detail.appearances_title"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_18"
@@ -48,7 +49,7 @@
         android:layout_height="@dimen/dp_2"
         android:layout_marginHorizontal="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_16"
-        android:background="@color/lightGray"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/characterDetailTxtAppearances" />
@@ -91,7 +92,7 @@
         android:layout_height="@dimen/dp_2"
         android:layout_marginHorizontal="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_16"
-        android:background="@color/lightGray"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvSeriesAvailable" />

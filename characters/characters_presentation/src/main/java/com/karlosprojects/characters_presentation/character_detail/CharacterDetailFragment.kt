@@ -55,7 +55,7 @@ class CharacterDetailFragment : Fragment() {
                 if (event is UiEvent.ShowSnackBar) {
                     binding.root.showStringSnackBar(event.message.asString(requireContext()))
                 }
-            }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
             viewModel.characterDetailState.onEach { character ->
                 if (character.isLoading) {
                     cpCharacterLoading.visibility = View.VISIBLE

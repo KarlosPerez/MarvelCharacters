@@ -69,7 +69,7 @@ class CharactersFragment : Fragment() {
                 }
                 else -> Unit
             }
-        }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
         viewModel.charactersState.onEach { state ->
             when {
                 state.isLoading -> {
