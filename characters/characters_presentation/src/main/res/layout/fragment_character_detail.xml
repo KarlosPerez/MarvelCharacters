@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    tools:context=".character_detail.CharacterDetailFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbCharacter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/character_detail.character_title"
+        app:titleTextAppearance="@style/Toolbar.MaterialTitleAppearance"
+        app:titleTextColor="@color/white" />
+
+    <com.karlosprojects.characters_presentation.character_detail.custom_views.CharacterDetailsComponent
+        android:id="@+id/cvCharacterDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tbCharacter" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/characterDetailTxtAppearances"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/character_detail.appearances_title"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCharacterDetail" />
+
+    <View
+        android:id="@+id/vwDividerTop"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginHorizontal="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/characterDetailTxtAppearances" />
+
+    <com.karlosprojects.characters_presentation.character_detail.custom_views.AvailableInfoComponent
+        android:id="@+id/cvSeriesAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@id/vwDividerBottom"
+        app:layout_constraintEnd_toStartOf="@id/cvComicsAvailable"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vwDividerTop" />
+
+    <com.karlosprojects.characters_presentation.character_detail.custom_views.AvailableInfoComponent
+        android:id="@+id/cvComicsAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintEnd_toStartOf="@id/cvStoriesAvailable"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/cvSeriesAvailable"
+        app:layout_constraintTop_toBottomOf="@id/vwDividerTop" />
+
+    <com.karlosprojects.characters_presentation.character_detail.custom_views.AvailableInfoComponent
+        android:id="@+id/cvStoriesAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/cvComicsAvailable"
+        app:layout_constraintTop_toBottomOf="@id/vwDividerTop" />
+
+    <View
+        android:id="@+id/vwDividerBottom"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginHorizontal="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvSeriesAvailable" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/cpCharacterLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dp_1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

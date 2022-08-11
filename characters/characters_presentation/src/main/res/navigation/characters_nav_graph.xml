@@ -9,5 +9,21 @@
         android:id="@+id/charactersFragment"
         android:name="com.karlosprojects.characters_presentation.character_overview.CharactersFragment"
         android:label="@string/characters.characters_title"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters">
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.karlosprojects.characters_presentation.character_detail.CharacterDetailFragment"
+        android:label="@string/character_detail.character_title"
+        tools:layout="@layout/fragment_character_detail">
+
+        <argument
+            android:name="characterId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
 </navigation>
