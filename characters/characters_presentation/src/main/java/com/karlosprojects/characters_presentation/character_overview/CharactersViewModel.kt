@@ -23,8 +23,8 @@ class CharactersViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    private val _charactersState = MutableStateFlow(CharacterOverviewState())
-    val charactersState: StateFlow<CharacterOverviewState> = _charactersState
+    private val _charactersState = MutableStateFlow(CharacterOverviewUiState())
+    val charactersState: StateFlow<CharacterOverviewUiState> = _charactersState
 
     fun onCharactersEvent(event: CharacterEvent) {
         when (event) {
@@ -45,8 +45,7 @@ class CharactersViewModel @Inject constructor(
             }
             .onFailure { error ->
                 _charactersState.value = _charactersState.value.copy(
-                    isLoading = false,
-                    error = error.message.toString()
+                    isLoading = false
                 )
                 if (error is UnknownHostException) {
                     _uiEvent.send(

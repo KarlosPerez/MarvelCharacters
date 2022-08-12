@@ -10,11 +10,11 @@ plugins {
 apply from: '../../dependencies.gradle'
 
 android {
-    compileSdk 32
+    compileSdk versions.compileSdk
 
     defaultConfig {
-        minSdk 23
-        targetSdk 32
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
 
         testInstrumentationRunner "com.karlosprojects.marvelcharacters.HiltTestRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -62,12 +62,11 @@ dependencies {
     testImplementation "io.mockk:mockk:$versions.mockkVersion"
     testImplementation "io.mockk:mockk-android:$versions.mockkVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTestVersion"
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation "androidx.arch.core:core-testing:$versions.coreTestingVersion"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "androidx.core:core-ktx:$versions.coreKtxVersion"
+    implementation "androidx.appcompat:appcompat:$versions.appCompatVersion"
+    implementation "com.google.android.material:material:$versions.materialVersion"
+    testImplementation "junit:junit:$versions.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$versions.junitAndroidExtVersion"
 }

@@ -20,8 +20,8 @@ class CharacterDetailViewModel @Inject constructor(
     private val getCharacterDetailUC: GetCharacterDetail
 ) : ViewModel() {
 
-    private val _characterDetailState = MutableStateFlow(CharacterDetailState())
-    val characterDetailState: StateFlow<CharacterDetailState> = _characterDetailState
+    private val _characterDetailState = MutableStateFlow(CharacterDetailUiState())
+    val characterDetailState: StateFlow<CharacterDetailUiState> = _characterDetailState
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -53,43 +55,54 @@ class CharactersFragment : Fragment() {
 
     private fun initListeners() {
         binding.lyEmptyLanding.btnRetry.setOnClickListener {
+            binding.lyEmptyLanding.pbLoading.visibility = View.VISIBLE
             viewModel.onCharactersEvent(CharacterEvent.OnRequestCharacters)
         }
     }
 
     private fun initObservers() {
-        viewModel.uiEvent.onEach { event ->
-            when (event) {
-                UiEvent.ShowEmptyState -> {
-                    binding.lyEmptyLanding.root.visibility = View.VISIBLE
-                    binding.cpCharactersLoading.visibility = View.GONE
+        with(binding) {
+            viewModel.uiEvent.onEach { event ->
+                when (event) {
+                    UiEvent.ShowEmptyState -> {
+                        lyEmptyLanding.pbLoading.hideIfRequired()
+                        lyEmptyLanding.root.visibility = View.VISIBLE
+                        rvCharacters.visibility = View.GONE
+                        cpCharactersLoading.visibility = View.GONE
+                    }
+                    is UiEvent.ShowSnackBar -> {
+                        root.showStringSnackBar(event.message.asString(requireContext()))
+                    }
+                    else -> Unit
                 }
-                is UiEvent.ShowSnackBar -> {
-                    binding.root.showStringSnackBar(event.message.asString(requireContext()))
-                }
-                else -> Unit
-            }
-        }.launchIn(viewLifecycleOwner.lifecycleScope)
-        viewModel.charactersState.onEach { state ->
-            when {
-                state.isLoading -> {
-                    binding.cpCharactersLoading.visibility = View.VISIBLE
-                }
-                state.characters.isNotEmpty() -> {
-                    binding.lyEmptyLanding.root.visibility = View.GONE
-                    binding.cpCharactersLoading.visibility = View.GONE
-                    charactersAdapter.submitList(state.characters)
-                }
-                state.error.isNotEmpty() -> {
-                    binding.root.showStringSnackBar(state.error)
-                }
-            }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        }.launchIn(viewLifecycleOwner.lifecycleScope)
+            viewModel.charactersState.onEach { state ->
+                when {
+                    state.isLoading -> {
+                        rvCharacters.visibility = View.GONE
+                        cpCharactersLoading.visibility = View.VISIBLE
+                    }
+                    state.characters.isNotEmpty() -> {
+                        lyEmptyLanding.pbLoading.hideIfRequired()
+                        lyEmptyLanding.root.visibility = View.GONE
+                        cpCharactersLoading.visibility = View.GONE
+                        rvCharacters.visibility = View.VISIBLE
+                        charactersAdapter.submitList(state.characters)
+                    }
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
+        }
     }
 
     private fun initRecyclerView() {
         binding.rvCharacters.adapter = charactersAdapter
+    }
+
+    private fun ProgressBar.hideIfRequired() {
+        if (this.isVisible) {
+            binding.lyEmptyLanding.pbLoading.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {

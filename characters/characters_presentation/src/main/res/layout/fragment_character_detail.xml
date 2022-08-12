@@ -36,10 +36,10 @@
         android:layout_marginHorizontal="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/character_detail.appearances_title"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvCharacterDetail" />
 
@@ -97,15 +97,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvSeriesAvailable" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+    <ProgressBar
         android:id="@+id/cpCharacterLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/dp_1"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/dp_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/vwDividerBottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
