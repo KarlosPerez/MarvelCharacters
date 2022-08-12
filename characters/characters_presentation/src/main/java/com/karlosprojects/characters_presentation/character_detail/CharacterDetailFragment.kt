@@ -40,7 +40,6 @@ class CharacterDetailFragment : Fragment() {
         initObservers()
         initListeners()
         viewModel.onCharactersEvent(OnRequestCharacterDetail(characterIdArg.characterId))
-
     }
 
     private fun initListeners() {

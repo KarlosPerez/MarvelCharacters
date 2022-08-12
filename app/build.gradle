@@ -85,7 +85,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
 
-    implementation "io.coil-kt:coil:$versions.coilVersion"
     debugImplementation("androidx.fragment:fragment-testing:$versions.fragmentTesting") {
         exclude group: 'androidx.test', module: 'core'
     }
