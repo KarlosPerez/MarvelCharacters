@@ -1,6 +1,5 @@
 package com.karlosprojects.characters_presentation
 
-import android.os.SystemClock
 import androidx.core.os.bundleOf
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.SmallTest
@@ -60,6 +59,10 @@ class CharacterDetailFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
     fun when_detail_is_displayed_should_show_character_detail() {
         enqueueResponses(successCharacterDetailResponse)
         waitUntilViewIsNotDisplayed(withId(R.id.cpCharacterLoading))
+        checkViewWithIdAndTextIsDisplayed(
+            viewId = R.id.characterDetailTxtAppearances,
+            viewText = R.string.character_detail_appearances_title,
+        )
         checkViewWithIdAndTextIsDisplayed(
             viewId = R.id.characterDetailTxtId,
             viewText = "1017100"
