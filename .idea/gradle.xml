@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/characters/characters_domain" />
             <option value="$PROJECT_DIR$/characters/characters_presentation" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core-ui" />
           </set>
         </option>
       </GradleProjectSettings>

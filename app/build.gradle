@@ -53,6 +53,7 @@ dependencies {
     implementation project(":characters:characters_presentation")
     implementation project(":characters:characters_domain")
     implementation project(":characters:characters_data")
+    implementation project(":core-ui")
     implementation project(":core")
 
     implementation "androidx.core:core-ktx:$versions.coreKtxVersion"
