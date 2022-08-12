@@ -35,12 +35,12 @@ android {
 dependencies {
 
     implementation project(":characters:characters_domain")
+    implementation project(":core-network")
+    implementation project(":core-model")
     implementation project(":core")
 
-    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
-    implementation "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
+    testImplementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    testImplementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
 
     implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"

@@ -53,6 +53,9 @@ dependencies {
     implementation project(":characters:characters_presentation")
     implementation project(":characters:characters_domain")
     implementation project(":characters:characters_data")
+    implementation project(":core-model")
+    implementation project(":core-network")
+    implementation project(":core-ui")
     implementation project(":core")
 
     implementation "androidx.core:core-ktx:$versions.coreKtxVersion"
@@ -82,7 +85,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
 
-    implementation "io.coil-kt:coil:$versions.coilVersion"
     debugImplementation("androidx.fragment:fragment-testing:$versions.fragmentTesting") {
         exclude group: 'androidx.test', module: 'core'
     }

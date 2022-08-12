@@ -1,8 +1,8 @@
 package com.karlosprojects.characters_data.repository
 
-import com.karlosprojects.characters_data.dto.*
-import com.karlosprojects.characters_data.remote.MarvelApi
 import com.karlosprojects.characters_domain.repository.CharacterDetailRepository
+import com.karlosprojects.core_model.dto.*
+import com.karlosprojects.core_network.api.MarvelApi
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.confirmVerified
