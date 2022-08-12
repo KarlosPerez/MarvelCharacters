@@ -23,8 +23,8 @@ class CharactersViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    private val _charactersState = MutableStateFlow(CharacterOverviewState())
-    val charactersState: StateFlow<CharacterOverviewState> = _charactersState
+    private val _charactersState = MutableStateFlow(CharacterOverviewUiState())
+    val charactersState: StateFlow<CharacterOverviewUiState> = _charactersState
 
     fun onCharactersEvent(event: CharacterEvent) {
         when (event) {

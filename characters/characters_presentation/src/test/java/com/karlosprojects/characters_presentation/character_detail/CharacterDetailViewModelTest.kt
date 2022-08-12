@@ -38,7 +38,7 @@ class CharacterDetailViewModelTest {
     @Test
     fun getCharacterDetail() = runTest {
         /** preparation */
-        var character = CharacterDetailState()
+        var character = CharacterDetailUiState()
         val detail = CharacterDetail(
             id = 1001,
             name = "name",
@@ -55,7 +55,7 @@ class CharacterDetailViewModelTest {
         viewModel.onCharactersEvent(CharacterDetailEvent.OnRequestCharacterDetail(1001))
         val job = launch(UnconfinedTestDispatcher()) {
             viewModel.characterDetailState.collect {
-                character = CharacterDetailState(
+                character = CharacterDetailUiState(
                     isLoading = false,
                     character = it.character
                 )
@@ -73,14 +73,14 @@ class CharacterDetailViewModelTest {
     fun getCharacterDetailFailure() = runTest {
         /** preparation */
         val exception = Throwable()
-        var character = CharacterDetailState()
+        var character = CharacterDetailUiState()
         coEvery { getCharacterDetailUC.invoke(any()) } answers { Result.failure(exception) }
 
         /** execution */
         viewModel.onCharactersEvent(CharacterDetailEvent.OnRequestCharacterDetail(1001))
         val job = launch(UnconfinedTestDispatcher()) {
             viewModel.characterDetailState.collect {
-                character = CharacterDetailState(
+                character = CharacterDetailUiState(
                     isLoading = false
                 )
             }
