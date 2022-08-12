@@ -12,10 +12,12 @@ This is a multi-module demo marvel app, using android views, hilt based and MVVM
 
 ### Tech stack and libraries:
 
-* Retrofit & OkHttp3
+* Retrofit & OkHttp3 for network request
 * Hilt for dependency injection
 * Flow + coroutines for asynchronous
-* Glide
+* Glide for image loading
+* Espresso and MockWebServer for end-to-end testing
+* Mockk for unit testing
 * Architecture
   * MVVM architecture
   * Repository pattern
