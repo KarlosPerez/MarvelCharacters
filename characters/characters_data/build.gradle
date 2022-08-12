@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+apply from: '../../dependencies.gradle'
+
+android {
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":characters:characters_domain")
+    implementation project(":core-network")
+    implementation project(":core-model")
+    implementation project(":core")
+
+    testImplementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    testImplementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+
+    implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.mockWebServerVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTestVersion"
+    testImplementation "io.mockk:mockk:$versions.mockkVersion"
+    testImplementation "io.mockk:mockk-android:$versions.mockkVersion"
+    testImplementation "junit:junit:$versions.junitVersion"
+}
