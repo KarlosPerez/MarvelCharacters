@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_8"
         android:layout_marginVertical="@dimen/dp_16"
-        app:cardBackgroundColor="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/dp_12"
         app:cardElevation="@dimen/dp_1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,6 +120,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </merge>

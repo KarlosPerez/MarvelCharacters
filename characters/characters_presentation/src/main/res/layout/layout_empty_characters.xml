@@ -17,12 +17,12 @@
         android:layout_marginBottom="@dimen/dp_8"
         android:contentDescription="@string/characters.empty_characters_title"
         android:src="@drawable/ic_empty_characters"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/emptyCharactersTxtDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView2"
+        android:id="@+id/emptyCharactersTxtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -39,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
-        android:background="@drawable/bg_button"
-        android:paddingHorizontal="@dimen/dp_16"
+        android:backgroundTint="@color/purple_500"
+        app:cornerRadius="@dimen/dp_8"
         android:text="@string/characters.empty_characters_action"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
@@ -48,7 +48,7 @@
         android:textSize="@dimen/sp_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/emptyCharactersTxtDescription" />
 
     <ProgressBar
         android:id="@+id/pbLoading"
