@@ -1,9 +1,9 @@
 package com.karlosprojects.characters_data.repository
 
-import com.karlosprojects.characters_data.remote.MarvelApi
 import com.karlosprojects.characters_data.remote.invalidCharacterResponse
 import com.karlosprojects.characters_data.remote.validCharacterResponse
 import com.karlosprojects.characters_domain.repository.CharactersRepository
+import com.karlosprojects.core_network.api.MarvelApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse

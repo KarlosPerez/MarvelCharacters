@@ -1,9 +1,9 @@
 package com.karlosprojects.characters_data.repository
 
 import com.karlosprojects.characters_data.mappers.toCharacterDetailDomain
-import com.karlosprojects.characters_data.remote.MarvelApi
 import com.karlosprojects.characters_domain.model.CharacterDetail
 import com.karlosprojects.characters_domain.repository.CharacterDetailRepository
+import com.karlosprojects.core_network.api.MarvelApi
 
 class CharacterDetailRepositoryImpl(
     private val marvelApi: MarvelApi

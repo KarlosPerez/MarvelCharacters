@@ -1,11 +1,7 @@
 package com.karlosprojects.di
 
-import com.karlosprojects.characters_data.di.CharactersDataModule
-import com.karlosprojects.characters_data.remote.MarvelApi
-import com.karlosprojects.characters_data.repository.CharacterDetailRepositoryImpl
-import com.karlosprojects.characters_data.repository.CharactersRepositoryImpl
-import com.karlosprojects.characters_domain.repository.CharacterDetailRepository
-import com.karlosprojects.characters_domain.repository.CharactersRepository
+import com.karlosprojects.core_network.api.MarvelApi
+import com.karlosprojects.core_network.di.NetworkModule
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -20,9 +16,9 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [CharactersDataModule::class]
+    replaces = [NetworkModule::class]
 )
-object CharactersDataTestModule {
+object NetworkTestModule {
 
     @Provides
     @Singleton
@@ -45,21 +41,5 @@ object CharactersDataTestModule {
                 }
             )
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideCharactersRepository(
-        api: MarvelApi
-    ): CharactersRepository {
-        return CharactersRepositoryImpl(marvelApi = api)
-    }
-
-    @Provides
-    @Singleton
-    fun provideCharacterDetailRepository(
-        api: MarvelApi
-    ): CharacterDetailRepository {
-        return CharacterDetailRepositoryImpl(marvelApi = api)
     }
 }

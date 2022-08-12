@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
 }
 
-apply from: '../../dependencies.gradle'
+apply from: '../dependencies.gradle'
 
 android {
     compileSdk versions.compileSdk
@@ -34,20 +35,14 @@ android {
 
 dependencies {
 
-    implementation project(":characters:characters_domain")
-    implementation project(":core-network")
     implementation project(":core-model")
     implementation project(":core")
 
-    testImplementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
-    testImplementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
 
     implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"
-
-    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.mockWebServerVersion"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTestVersion"
-    testImplementation "io.mockk:mockk:$versions.mockkVersion"
-    testImplementation "io.mockk:mockk-android:$versions.mockkVersion"
-    testImplementation "junit:junit:$versions.junitVersion"
 }

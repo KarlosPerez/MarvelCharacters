@@ -1,7 +1,7 @@
 package com.karlosprojects.characters_data.mappers
 
-import com.karlosprojects.characters_data.dto.Results
-import com.karlosprojects.characters_data.dto.Thumbnail
+import com.karlosprojects.core_model.dto.Results
+import com.karlosprojects.core_model.dto.Thumbnail
 import com.karlosprojects.characters_domain.model.CharacterDetail
 import com.karlosprojects.characters_domain.model.MarvelCharacter
 

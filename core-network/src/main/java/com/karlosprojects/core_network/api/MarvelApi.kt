@@ -1,6 +1,6 @@
-package com.karlosprojects.characters_data.remote
+package com.karlosprojects.core_network.api
 
-import com.karlosprojects.characters_data.dto.CharactersDto
+import com.karlosprojects.core_model.dto.CharactersDto
 import com.karlosprojects.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
