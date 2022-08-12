@@ -67,6 +67,10 @@ class CharacterDetailFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
             viewId = R.id.characterDetailTxtId,
             viewText = "1017100"
         )
+        checkViewWithIdAndTextIsDisplayed(
+            viewId = R.id.characterDetailTxtModified,
+            viewText = "2013-09-18"
+        )
         checkViewWithIdAndPartialTextIsDisplayed(
             viewId = R.id.characterDetailTxtDescription,
             viewText = "Rick Jones has been Hulk's best bud since day one"

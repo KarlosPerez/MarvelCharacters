@@ -28,10 +28,10 @@ fun Results.toCharacterDetailDomain(): CharacterDetail {
         comicAvailable = comics.available,
         seriesAvailable = series.available,
         storiesAvailable = stories.available,
-        modified = modified
+        modified = modified.take(n = 10)
     )
 }
 
-internal fun Thumbnail.getThumbnail() : String = "$path.$extension".let {
+internal fun Thumbnail.getThumbnail(): String = "$path.$extension".let {
     return it.replace("http", "https")
 }
