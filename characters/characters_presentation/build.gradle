@@ -16,7 +16,7 @@ android {
         minSdk 23
         targetSdk 32
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.karlosprojects.marvelcharacters.HiltTestRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -59,6 +59,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigationVersion"
 
+    testImplementation "io.mockk:mockk:$versions.mockkVersion"
+    testImplementation "io.mockk:mockk-android:$versions.mockkVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTestVersion"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
