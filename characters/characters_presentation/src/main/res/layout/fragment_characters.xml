@@ -25,15 +25,17 @@
         layout="@layout/layout_empty_characters"
         android:visibility="gone" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+    <ProgressBar
         android:id="@+id/cpCharactersLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="@dimen/dp_1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCharacters"
@@ -41,6 +43,7 @@
         android:layout_height="@dimen/dp_0"
         android:clipToPadding="false"
         android:padding="@dimen/dp_8"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,6 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tbCharacters"
         app:spanCount="2"
-        tools:listitem="@layout/item_character" />
+        tools:listitem="@layout/item_character"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

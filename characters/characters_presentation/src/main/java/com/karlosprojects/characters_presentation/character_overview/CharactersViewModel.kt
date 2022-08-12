@@ -45,8 +45,7 @@ class CharactersViewModel @Inject constructor(
             }
             .onFailure { error ->
                 _charactersState.value = _charactersState.value.copy(
-                    isLoading = false,
-                    error = error.message.toString()
+                    isLoading = false
                 )
                 if (error is UnknownHostException) {
                     _uiEvent.send(
