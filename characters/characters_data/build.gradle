@@ -37,7 +37,6 @@ dependencies {
     implementation project(":characters:characters_domain")
     implementation project(":core-network")
     implementation project(":core-model")
-    implementation project(":core")
 
     testImplementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
     testImplementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
