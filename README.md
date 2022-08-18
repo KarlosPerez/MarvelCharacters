@@ -1,3 +1,38 @@
-# Marvel Characteres App
+# Marvel Characters App
 
-Aplicación Android Nativo de personajes de marvl, que permite visualizar personajes y ver el detalle de cada personaje.
+App that shows a list of marvel characters and navigates to specific character
+
+## Purpose
+
+This is created just for practice, working with multimodule.
+
+### What you can find in this project
+
+This is a multi-module demo marvel app, using android views, hilt based and MVVM architecture. Fetches data from the network via repository pattern.
+
+### Tech stack and libraries:
+
+* Retrofit & OkHttp3 for network request
+* Hilt for dependency injection
+* Flow + coroutines for asynchronous
+* Glide for image loading
+* Espresso and MockWebServer for end-to-end testing
+* Mockk for unit testing
+* Architecture
+  * MVVM architecture
+  * Repository pattern
+* Jetpack
+  * ViewModel
+  * Lifecycle
+  * Navigation
+  
+## Module graph
+
+![preview](https://github.com/KarlosPerez/MarvelCharacters/blob/master/preview/module-graph.png)
+  
+## Screenshots
+
+![preview](https://github.com/KarlosPerez/MarvelCharacters/blob/master/preview/preview1.png)
+![preview](https://github.com/KarlosPerez/MarvelCharacters/blob/master/preview/preview2.png)
+![preview](https://github.com/KarlosPerez/MarvelCharacters/blob/master/preview/preview3.png)
+
