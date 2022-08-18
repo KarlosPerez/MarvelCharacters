@@ -65,4 +65,40 @@ class CharacterDetailRepositoryImplTest {
         Assert.assertTrue(test.isSuccess)
         coVerify { api.getCharacterDetail(1017100) }
     }
+
+    @Test
+    fun getCharacterDetailFailure() = runBlocking {
+        /** preparation */
+        val responseDto = CharactersDto(
+            code = 200,
+            status = "Ok",
+            copyright = "copyright",
+            data = Data(
+                listOf(
+                    Results(
+                        id = 1,
+                        description = "description",
+                        modified = "2013-09-18T15:54:04-0400",
+                        name = "name",
+                        resourceURI = String(),
+                        series = Series(2),
+                        thumbnail = Thumbnail("path", "extension"),
+                        comics = Comics(1, listOf()),
+                        stories = Stories(2),
+                        urls = listOf()
+                    )
+                )
+            )
+        )
+        coEvery {
+            api.getCharacterDetail(1017100)
+        } answers { responseDto }
+
+        /** execution */
+        val test = repository.getCharacterDetail(1017100)
+
+        /** verification */
+        Assert.assertTrue(test.isSuccess)
+        coVerify { api.getCharacterDetail(1017100) }
+    }
 }
