@@ -5,10 +5,12 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
+import com.google.android.material.R
 import org.hamcrest.CoreMatchers.*
 
 fun checkViewIsDisplayedByText(viewText: String) {
@@ -82,4 +84,13 @@ fun performClickOnBackButtonInToolbar(@IdRes viewId: Int) {
             instanceOf(AppCompatImageButton::class.java), withParent(withId(viewId))
         )
     ).perform(click())
+}
+
+fun checkSnackBarIsDisplayed(withText: String): ViewInteraction {
+    return onView(
+        allOf(
+            withId(R.id.snackbar_text),
+            withText(withText)
+        )
+    )
 }

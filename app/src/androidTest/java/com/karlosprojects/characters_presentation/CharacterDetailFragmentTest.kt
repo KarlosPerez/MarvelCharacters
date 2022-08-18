@@ -38,6 +38,12 @@ class CharacterDetailFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
     private val successCharacterDetailResponse: MockResponse
         get() = mockResponse(FILE_SUCCESS_CHARACTER_DETAIL_RESPONSE, HttpURLConnection.HTTP_OK)
 
+    private val failureCharacterDetailResponse: MockResponse
+        get() = mockResponse(
+            FILE_SUCCESS_CHARACTER_DETAIL_RESPONSE,
+            HttpURLConnection.HTTP_UNAVAILABLE
+        )
+
     private fun launchFragment() {
         launchFragmentInHiltContainer<CharacterDetailFragment>(
             fragmentArgs = bundleOf(
@@ -79,6 +85,18 @@ class CharacterDetailFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
             viewId = R.id.characterDetailTxtName,
             viewText = "A-Bomb (HAS)"
         )
+    }
+
+    @Test
+    @SmallTest
+    fun when_detail_is_displayed_and_endpoint_get_error_code_should_show_message() {
+        enqueueResponses(failureCharacterDetailResponse)
+        waitUntilViewIsNotDisplayed(withId(R.id.cpCharacterLoading))
+        checkViewWithIdAndTextIsDisplayed(
+            viewId = R.id.characterDetailTxtAppearances,
+            viewText = R.string.character_detail_appearances_title,
+        )
+        checkSnackBarIsDisplayed("Something bad happened in the multiverse")
     }
 
     @Test
