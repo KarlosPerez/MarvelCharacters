@@ -78,18 +78,18 @@ class CharactersFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
             viewModel.charactersState.onEach { state ->
-                when {
-                    state.isLoading -> {
-                        rvCharacters.visibility = View.GONE
-                        cpCharactersLoading.visibility = View.VISIBLE
-                    }
-                    state.characters.isNotEmpty() -> {
-                        lyEmptyLanding.pbLoading.hideIfRequired()
-                        lyEmptyLanding.root.visibility = View.GONE
-                        cpCharactersLoading.visibility = View.GONE
-                        rvCharacters.visibility = View.VISIBLE
-                        charactersAdapter.submitList(state.characters)
-                    }
+                if (state.isLoading) {
+                    rvCharacters.visibility = View.GONE
+                    cpCharactersLoading.visibility = View.VISIBLE
+                } else {
+                    cpCharactersLoading.visibility = View.GONE
+                }
+                if (state.characters.isNotEmpty()) {
+                    lyEmptyLanding.pbLoading.hideIfRequired()
+                    lyEmptyLanding.root.visibility = View.GONE
+                    cpCharactersLoading.visibility = View.GONE
+                    rvCharacters.visibility = View.VISIBLE
+                    charactersAdapter.submitList(state.characters)
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
         }

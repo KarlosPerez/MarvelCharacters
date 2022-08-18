@@ -8,6 +8,7 @@ import com.karlosprojects.characters_presentation.character_overview.CharactersF
 import com.karlosprojects.idleresources.waitUntilViewIsNotDisplayed
 import com.karlosprojects.network.FILE_SUCCESS_CHARACTERS_RESPONSE
 import com.karlosprojects.network.mockResponse
+import com.karlosprojects.util.checkSnackBarIsDisplayed
 import com.karlosprojects.util.checkViewInRecyclerWithIdAndTextIsDisplayed
 import com.karlosprojects.util.checkViewIsDisplayedByText
 import com.karlosprojects.util.launchFragmentInHiltContainer
@@ -37,6 +38,9 @@ class CharactersFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
     private val successCharactersResponse: MockResponse
         get() = mockResponse(FILE_SUCCESS_CHARACTERS_RESPONSE, HttpURLConnection.HTTP_OK)
 
+    private val failureCharactersResponse: MockResponse
+        get() = mockResponse(FILE_SUCCESS_CHARACTERS_RESPONSE, HttpURLConnection.HTTP_UNAVAILABLE)
+
     private fun launchFragment() {
         launchFragmentInHiltContainer<CharactersFragment>()
     }
@@ -62,6 +66,14 @@ class CharactersFragmentTest : BaseUITest(dispatcher = QueueDispatcher()) {
             viewText = "A.I.M.",
             position = 2
         )
+    }
+
+    @Test
+    @SmallTest
+    fun when_endpoint_get_error_code_should_show_message() {
+        enqueueResponses(failureCharactersResponse)
+        waitUntilViewIsNotDisplayed(withId(R.id.cpCharactersLoading))
+        checkSnackBarIsDisplayed("Something bad happened in the multiverse")
     }
 
 }
